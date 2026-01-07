@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-main: 'Outfit', system-ui, sans-serif;
+}
+
+* {
+  font-family: var(--font-main);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: oklch(var(--b1));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(var(--b2));
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--bc) / 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--bc) / 0.3);
+}
+
+/* Glass effect utility */
+.glass-card {
+  background-color: oklch(var(--b1) / 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid oklch(var(--bc) / 0.05);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(to right, oklch(var(--p)), oklch(var(--s)), oklch(var(--a)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  transition: all 0.3s ease-out;
+}
+
+/* Card hover effect */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Animated gradient background */
+.animated-gradient {
+  background: linear-gradient(-45deg, oklch(var(--p)), oklch(var(--s)), oklch(var(--a)), oklch(var(--p)));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulse animation for active states */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(var(--p) / 0.4); }
+  50% { box-shadow: 0 0 20px 5px oklch(var(--p) / 0.2); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Code/Pre styling */
+pre, code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+}
+
+pre {
+  background-color: oklch(var(--b2));
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow: auto;
+  max-height: 24rem;
+}
+
+

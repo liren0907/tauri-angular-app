@@ -1,0 +1,33 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background shapes -->
+  <circle cx="300" cy="200" r="150" fill="#E0E7FF" />
+  <circle cx="380" cy="120" r="80" fill="#C7D2FE" />
+  
+  <!-- Tauri Symbol -->
+  <g transform="translate(250, 150) scale(1.5)">
+    <path d="M67.098 28.237C73.309 39.163 68.021 53.318 56.529 59.265C45.036 65.211 30.881 59.585 24.67 48.659C18.459 37.733 23.747 23.578 35.24 17.631C46.732 11.684 60.887 17.311 67.098 28.237Z" fill="#FCA5A5"/>
+    <path d="M61.866 30.684C66.509 38.501 62.61 48.656 54.354 53.038C46.098 57.42 35.944 53.246 31.301 45.429C26.658 37.611 30.557 27.457 38.813 23.075C47.068 18.693 57.223 22.866 61.866 30.684Z" fill="#F87171"/>
+    <path d="M56.633 33.13C59.708 38.84 56.957 45.993 50.943 48.879C44.93 51.765 37.777 48.781 34.702 43.071C31.627 37.361 34.378 30.207 40.392 27.321C46.405 24.435 53.558 27.42 56.633 33.13Z" fill="#EF4444"/>
+  </g>
+  
+  <!-- Angular Symbol -->
+  <g transform="translate(310, 170) scale(1.2)">
+    <path d="M40 0L0 14L6 66L40 84L74 66L80 14L40 0Z" fill="#C7D2FE"/>
+    <path d="M40 0L40 84L74 66L80 14L40 0Z" fill="#818CF8"/>
+    <path d="M40 10L15 65L24 65L29 50L51 50L56 65L65 65L40 10ZM40 28L47 45L33 45L40 28Z" fill="#4F46E5"/>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="180" cy="150" r="10" fill="#FCD34D" />
+  <circle cx="420" cy="250" r="15" fill="#A5B4FC" />
+  <circle cx="220" cy="80" r="8" fill="#F87171" />
+  <circle cx="450" cy="100" r="12" fill="#6366F1" />
+  
+  <!-- Code brackets -->
+  <path d="M150 280L120 250L150 220" stroke="#6366F1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M450 280L480 250L450 220" stroke="#6366F1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Desktop frame -->
+  <rect x="200" y="300" width="200" height="20" rx="5" fill="#4B5563"/>
+  <rect x="230" y="320" width="140" height="10" rx="2" fill="#9CA3AF"/>
+</svg> 

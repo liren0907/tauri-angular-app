@@ -1,0 +1,75 @@
+<div class="flex h-screen overflow-hidden bg-base-200 p-3 gap-3">
+  <!-- Sidebar (Fixed Left) -->
+  <aside class="w-60 bg-base-100 rounded-2xl border border-base-content/10 flex flex-col flex-shrink-0">
+    <!-- Logo -->
+    <div class="p-5 border-b border-base-content/10">
+      <a routerLink="/" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
+          <app-icon name="bolt" class="text-white" size="sm"></app-icon>
+        </div>
+        <span class="text-lg font-bold">TauriApp</span>
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 p-3">
+      <ul class="menu gap-1">
+        <li>
+          <a routerLink="/home" routerLinkActive="active" class="flex items-center gap-3 rounded-xl">
+            <app-icon name="squares-2x2"></app-icon>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/media" routerLinkActive="active" class="flex items-center gap-3 rounded-xl">
+            <app-icon name="play-circle"></app-icon>
+            <span>Media</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/chat" routerLinkActive="active" class="flex items-center gap-3 rounded-xl">
+            <app-icon name="chat-bubble-left-right"></app-icon>
+            <span>Chat</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Bottom -->
+    <div class="p-4 border-t border-base-content/10">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="avatar placeholder">
+            <div class="w-8 h-8 rounded-xl bg-primary text-white">
+              <span class="text-xs">U</span>
+            </div>
+          </div>
+          <span class="text-sm font-medium">User</span>
+        </div>
+        <button class="btn btn-ghost btn-sm btn-circle" (click)="toggleTheme()">
+          <app-icon *ngIf="!isDarkMode" name="moon" size="sm"></app-icon>
+          <app-icon *ngIf="isDarkMode" name="sun" size="sm"></app-icon>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col gap-3 overflow-hidden">
+    <!-- Header -->
+    <header
+      class="h-14 bg-base-100 rounded-2xl border border-base-content/10 flex items-center justify-between px-5 flex-shrink-0">
+      <h1 class="text-lg font-semibold">{{ getPageTitle() }}</h1>
+      <span class="text-xs text-base-content/50">v1.0.0</span>
+    </header>
+
+    <!-- Content -->
+    <main class="flex-1 bg-base-100 rounded-2xl border border-base-content/10 overflow-hidden">
+      <div class="h-full overflow-y-auto p-5">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>
+
+<app-toast></app-toast>

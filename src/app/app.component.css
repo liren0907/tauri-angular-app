@@ -1,0 +1,30 @@
+/* Menu active state styling */
+.menu li > a.active {
+  background-color: oklch(var(--p) / 0.1);
+  color: oklch(var(--p));
+  font-weight: 600;
+}
+
+.menu li > a.active mat-icon {
+  color: oklch(var(--p));
+}
+
+.menu li > a:hover:not(.active) {
+  background-color: oklch(var(--bc) / 0.05);
+}
+
+/* Smooth page transitions */
+router-outlet + * {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
