@@ -1,5 +1,7 @@
 # Tauri + Angular Media & Chat App
 
+![Tauri Angular App](assets/tauri-angular-home-page.png)
+
 A modern interaction-focused desktop application built with **Tauri v2** (Rust) and **Angular 17** (TypeScript).
 
 ## 🚀 Features
