@@ -1,0 +1,67 @@
+<div class="h-full flex flex-col gap-6 p-4">
+  <div class="flex justify-between items-center">
+    <h2 class="text-2xl font-bold">Media Backend Analysis</h2>
+    <div class="flex gap-2">
+      <input #fileInput type="file" hidden (change)="handleFileInput($event)" accept="video/*">
+      
+      <button class="btn btn-primary" (click)="selectFile()" [disabled]="isLoading">
+        <app-icon name="folder-open" class="w-5 h-5 mr-1" *ngIf="!isLoading"></app-icon>
+        <span class="loading loading-spinner loading-xs" *ngIf="isLoading"></span>
+        Select Video
+      </button>
+
+      <button *ngIf="videoSrc" class="btn btn-ghost text-error" (click)="clearVideo()">
+        <app-icon name="trash" class="w-5 h-5 mr-1"></app-icon>
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+    <!-- Video Player Card -->
+    <div class="card bg-base-200 shadow-xl h-fit">
+      <div class="card-body p-0 overflow-hidden">
+        <figure class="relative bg-black aspect-video flex items-center justify-center">
+          <video *ngIf="videoSrc" [src]="videoSrc" controls class="w-full h-full object-contain"></video>
+          
+          <div *ngIf="!videoSrc" class="text-center text-base-content/40 p-10">
+            <app-icon name="film" class="w-16 h-16 mx-auto mb-4 opacity-50"></app-icon>
+            <p class="text-lg font-medium">No Video Selected</p>
+            <p class="text-sm opacity-70">Select a video file to analyze</p>
+          </div>
+        </figure>
+        <div class="p-4 bg-base-300" *ngIf="fileName">
+          <p class="font-mono text-sm truncate">{{ fileName }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info Card -->
+    <div class="card bg-base-200 shadow-xl h-fit">
+      <div class="card-body">
+        <h3 class="card-title text-primary mb-4">
+          <app-icon name="information-circle" class="w-6 h-6"></app-icon>
+          Video Information
+        </h3>
+
+        <div *ngIf="isLoading" class="flex flex-col items-center justify-center py-10 gap-4">
+          <span class="loading loading-spinner loading-lg text-primary"></span>
+          <p>Analyzing video via ffprobe...</p>
+        </div>
+
+        <div *ngIf="!isLoading && formattedVideoInfo" class="grid grid-cols-1 gap-4">
+          <div *ngFor="let key of getObjectKeys(formattedVideoInfo)" 
+               class="flex justify-between items-center p-3 bg-base-100 rounded-lg">
+            <span class="font-semibold opacity-70">{{ key }}</span>
+            <span class="font-mono text-primary">{{ formattedVideoInfo[key] }}</span>
+          </div>
+        </div>
+
+        <div *ngIf="!isLoading && !formattedVideoInfo" class="alert">
+          <app-icon name="information-circle" class="w-5 h-5"></app-icon>
+          <span>Select a video to view detailed technical information extracted by Rust.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

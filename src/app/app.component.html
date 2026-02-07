@@ -12,46 +12,35 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="flex-1 p-3">
-      <ul class="menu gap-1">
+    <nav class="flex-1 p-4">
+      <ul class="menu gap-2">
         <li>
-          <a routerLink="/home" routerLinkActive="active" class="flex items-center gap-3 rounded-xl">
+          <a routerLink="/home" routerLinkActive="active" class="flex items-center gap-3 rounded-xl px-3 py-2 text-base">
             <app-icon name="squares-2x2"></app-icon>
             <span>Dashboard</span>
           </a>
         </li>
         <li>
-          <a routerLink="/media" routerLinkActive="active" class="flex items-center gap-3 rounded-xl">
+          <a routerLink="/media" routerLinkActive="active" class="flex items-center gap-3 rounded-xl px-3 py-2 text-base">
             <app-icon name="play-circle"></app-icon>
             <span>Media</span>
           </a>
         </li>
         <li>
-          <a routerLink="/chat" routerLinkActive="active" class="flex items-center gap-3 rounded-xl">
+          <a routerLink="/chat" routerLinkActive="active" class="flex items-center gap-3 rounded-xl px-3 py-2 text-base">
             <app-icon name="chat-bubble-left-right"></app-icon>
             <span>Chat</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/backend" routerLinkActive="active" class="flex items-center gap-3 rounded-xl px-3 py-2 text-base">
+            <app-icon name="server"></app-icon>
+            <span>Backend</span>
           </a>
         </li>
       </ul>
     </nav>
 
-    <!-- Bottom -->
-    <div class="p-4 border-t border-base-content/10">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <div class="avatar placeholder">
-            <div class="w-8 h-8 rounded-xl bg-primary text-white">
-              <span class="text-xs">U</span>
-            </div>
-          </div>
-          <span class="text-sm font-medium">User</span>
-        </div>
-        <button class="btn btn-ghost btn-sm btn-circle" (click)="toggleTheme()">
-          <app-icon *ngIf="!isDarkMode" name="moon" size="sm"></app-icon>
-          <app-icon *ngIf="isDarkMode" name="sun" size="sm"></app-icon>
-        </button>
-      </div>
-    </div>
   </aside>
 
   <!-- Main Content -->

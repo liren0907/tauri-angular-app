@@ -17,6 +17,7 @@ html, body {
   padding: 0;
   min-height: 100vh;
   background: oklch(var(--b1));
+  font-size: 17px;
 }
 
 /* Custom scrollbar */
@@ -95,7 +96,7 @@ html, body {
 /* Code/Pre styling */
 pre, code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
 }
 
 pre {
@@ -105,5 +106,4 @@ pre {
   overflow: auto;
   max-height: 24rem;
 }
-
 

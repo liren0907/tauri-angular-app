@@ -12,20 +12,7 @@ import { ToastComponent } from './shared/toast.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  isDarkMode = true;
-
-  constructor(private router: Router) {
-    // Apply saved theme
-    const savedTheme = localStorage.getItem('theme');
-    this.isDarkMode = savedTheme !== 'light';
-    this.applyTheme(this.isDarkMode ? 'modern' : 'light');
-  }
-
-  toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    this.applyTheme(this.isDarkMode ? 'modern' : 'light');
-    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
-  }
+  constructor(private router: Router) {}
 
   getPageTitle(): string {
     const path = this.router.url;
@@ -34,7 +21,4 @@ export class AppComponent {
     return 'Dashboard';
   }
 
-  private applyTheme(theme: string) {
-    document.documentElement.setAttribute('data-theme', theme);
-  }
 }
