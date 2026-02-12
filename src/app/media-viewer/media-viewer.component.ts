@@ -12,8 +12,8 @@ import { ToastService } from '../shared/toast.service';
       <!-- Controls -->
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <input #fileInput type="file" hidden (change)="handleFileInput($event)" accept="video/*,audio/*">
-          <button class="btn btn-primary rounded-xl gap-2" (click)="fileInput.click()">
+          <input #fileInput type="file" hidden (change)="handleFileInput($event)" accept="image/*,video/*">
+          <button class="btn btn-primary btn-outline rounded-xl gap-3 border border-primary/40 hover:border-primary hover:bg-primary/10 shadow-sm hover:shadow-md transition-all px-5 py-2.5 text-base font-semibold" (click)="fileInput.click()">
             <app-icon name="folder-open" size="sm"></app-icon>
             Open File
           </button>
@@ -26,13 +26,11 @@ import { ToastService } from '../shared/toast.service';
       </div>
 
       <!-- Player -->
-      <div class="flex-1 bg-base-200 rounded-2xl border border-base-content/10 overflow-hidden flex items-center justify-center">
-        <video *ngIf="src && isVideo" controls class="max-h-full max-w-full rounded-xl">
+      <div class="flex-1 bg-base-200 rounded-2xl overflow-hidden flex items-center justify-center">
+        <video *ngIf="src && isVideo" controls class="max-h-full max-w-full rounded-xl border border-base-content/10">
           <source [src]="src" [type]="fileType">
         </video>
-        <audio *ngIf="src && !isVideo" controls class="w-full max-w-md">
-          <source [src]="src" [type]="fileType">
-        </audio>
+        <img *ngIf="src && isImage" [src]="src" [alt]="fileName || 'Image preview'" class="max-h-full max-w-full rounded-xl object-contain border border-base-content/10">
         
         <div *ngIf="!src" class="text-center text-base-content/40">
           <div class="w-16 h-16 mx-auto rounded-2xl bg-base-300 border border-base-content/10 flex items-center justify-center mb-3">
@@ -46,7 +44,7 @@ import { ToastService } from '../shared/toast.service';
       <!-- Info -->
       <div class="flex items-center gap-3 p-3 bg-base-200 rounded-xl border border-base-content/10 text-sm">
         <app-icon name="information-circle" class="text-info"></app-icon>
-        <span class="text-base-content/60">Supports MP4, WebM, MP3, WAV and more</span>
+        <span class="text-base-content/60">Supports common video and image formats</span>
       </div>
     </div>
   `
@@ -55,7 +53,8 @@ export class MediaViewerComponent {
   src: string | null = null;
   fileName: string | null = null;
   fileType = '';
-  isVideo = true;
+  isVideo = false;
+  isImage = false;
 
   constructor(private toast: ToastService) { }
 
@@ -67,6 +66,7 @@ export class MediaViewerComponent {
       this.fileName = file.name;
       this.fileType = file.type;
       this.isVideo = file.type.startsWith('video/');
+      this.isImage = file.type.startsWith('image/');
       this.src = URL.createObjectURL(file);
       this.toast.success(`Loaded: ${file.name}`);
     }
@@ -76,5 +76,8 @@ export class MediaViewerComponent {
     if (this.src) URL.revokeObjectURL(this.src);
     this.src = null;
     this.fileName = null;
+    this.fileType = '';
+    this.isVideo = false;
+    this.isImage = false;
   }
 }
