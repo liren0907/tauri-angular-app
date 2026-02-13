@@ -23,9 +23,9 @@ interface Message {
               <app-icon name="chat-bubble-left-right" size="lg"></app-icon>
             </div>
             <p class="font-medium">Start a Conversation</p>
-            <div class="flex gap-2 mt-4 justify-center">
+            <div class="flex gap-2.5 mt-4 justify-center">
               <button *ngFor="let s of suggestions" 
-                      class="btn btn-sm btn-ghost rounded-xl border border-base-content/10"
+                      class="btn btn-sm btn-ghost rounded-xl border border-base-content/10 px-4 py-2 text-sm"
                       (click)="send(s)">
                 {{ s }}
               </button>
@@ -63,17 +63,21 @@ interface Message {
       </div>
 
       <!-- Input -->
-      <div class="flex gap-2">
+      <div class="flex items-center gap-3 bg-base-200 border border-base-content/10 rounded-2xl p-2.5 shadow-sm focus-within:shadow-md focus-within:border-primary/40 transition-all">
+        <div class="w-9 h-9 rounded-xl bg-base-100 border border-base-content/10 flex items-center justify-center text-base-content/60">
+          <app-icon name="chat-bubble-left-right" size="sm"></app-icon>
+        </div>
         <input type="text" 
                [(ngModel)]="input" 
                placeholder="Type a message..."
-               class="input input-bordered flex-1 rounded-xl"
+               class="input input-ghost flex-1 rounded-xl text-base"
                (keyup.enter)="send()"
                [disabled]="isTyping">
-        <button class="btn btn-primary rounded-xl" 
+        <button class="btn btn-primary rounded-xl px-4 shadow-sm hover:shadow-md" 
                 (click)="send()" 
                 [disabled]="!input.trim() || isTyping">
           <app-icon name="paper-airplane" size="sm"></app-icon>
+          Send
         </button>
       </div>
     </div>
