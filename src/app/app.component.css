@@ -5,10 +5,6 @@
   font-weight: 600;
 }
 
-.menu li > a.active mat-icon {
-  color: oklch(var(--p));
-}
-
 .menu li > a:hover:not(.active) {
   background-color: oklch(var(--bc) / 0.05);
 }

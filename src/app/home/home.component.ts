@@ -38,13 +38,7 @@ import { IconComponent } from '../shared/icon.component';
       <div class="card bg-base-200 rounded-2xl border border-base-content/10">
         <div class="card-body p-5">
           <h2 class="font-semibold mb-4">Quick Actions</h2>
-          <div class="grid grid-cols-3 gap-3">
-            <a routerLink="/backend" class="flex flex-col items-center p-4 rounded-xl bg-base-100 border border-base-content/10 hover:border-accent/50 transition-colors">
-              <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-2">
-                <app-icon name="server" class="text-accent" size="lg"></app-icon>
-              </div>
-              <span class="text-sm font-medium">Backend</span>
-            </a>
+          <div class="grid grid-cols-2 gap-3">
             <a routerLink="/media" class="flex flex-col items-center p-4 rounded-xl bg-base-100 border border-base-content/10 hover:border-primary/50 transition-colors">
               <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-2">
                 <app-icon name="play-circle" class="text-primary" size="lg"></app-icon>
